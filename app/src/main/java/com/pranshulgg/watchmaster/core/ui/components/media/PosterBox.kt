@@ -48,7 +48,7 @@ fun PosterBox(
         contentAlignment = Alignment.Center
     ) {
         if (!apiPath.isNullOrBlank()) {
-            val painter = rememberAsyncImagePainter(model = posterUrl)
+            val painter = rememberAsyncImagePainter(model = pickxoImageRequest(posterUrl))
 
             Image(
                 painter = painter,

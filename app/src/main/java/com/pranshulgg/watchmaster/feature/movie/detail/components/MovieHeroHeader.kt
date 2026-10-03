@@ -34,6 +34,7 @@ import com.pranshulgg.watchmaster.R
 import com.pranshulgg.watchmaster.core.ui.components.media.MediaChip
 import com.pranshulgg.watchmaster.core.ui.components.media.MediaDetailsScreenHeader
 import com.pranshulgg.watchmaster.core.ui.components.media.PosterBox
+import com.pranshulgg.watchmaster.core.ui.components.media.pickxoImageRequest
 import com.pranshulgg.watchmaster.core.ui.theme.ShapeRadius
 import com.pranshulgg.watchmaster.data.local.entity.MovieBundle
 import com.pranshulgg.watchmaster.data.local.entity.WatchlistItemEntity
@@ -53,7 +54,7 @@ fun MovieHeroHeader(
     Box(modifier = Modifier.fillMaxWidth()) {
 
         AsyncImage(
-            model = backdropUrl(movie),
+            model = pickxoImageRequest(backdropUrl(movie)),
             contentDescription = movie.title,
             modifier = Modifier
                 .fillMaxWidth()

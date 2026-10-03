@@ -21,6 +21,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.pranshulgg.watchmaster.R
+import coil.Coil
 import com.pranshulgg.watchmaster.core.prefs.LocalAppPrefs
 import com.pranshulgg.watchmaster.core.ui.components.CheckboxRow
 import com.pranshulgg.watchmaster.core.ui.components.DialogBasic
@@ -123,6 +124,22 @@ fun SettingsScreen(navController: NavController) {
                         placeholderTextField = "TMDB API key",
                         initialText = prefs.tmdbApiKey,
                         onTextSubmitted = { prefs.setTmdbApiKey(it) }
+                    ),
+                    SettingTile.SwitchTile(
+                        leading = { SettingsTileIcon(R.drawable.photo_24px) },
+                        title = "Image storage",
+                        description = if (prefs.onlineImageMode) {
+                            "Online • images load from TMDB and are not saved to disk"
+                        } else {
+                            "Offline • images are cached on this device for reuse"
+                        },
+                        checked = prefs.onlineImageMode,
+                        onCheckedChange = { checked ->
+                            prefs.setOnlineImageMode(checked)
+                            if (checked) {
+                                runCatching { Coil.imageLoader(context).diskCache?.clear() }
+                            }
+                        }
                     ),
                     SettingTile.DialogOptionTile(
                         leading = { SettingsTileIcon(R.drawable.home_filled_24px) },

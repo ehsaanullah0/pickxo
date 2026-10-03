@@ -22,5 +22,8 @@ data class AppPrefsState(
     val setDefaultTab: (String) -> Unit,
 
     val tmdbApiKey: String,
-    val setTmdbApiKey: (String) -> Unit
+    val setTmdbApiKey: (String) -> Unit,
+
+    val onlineImageMode: Boolean,
+    val setOnlineImageMode: (Boolean) -> Unit
 )

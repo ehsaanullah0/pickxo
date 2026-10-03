@@ -14,6 +14,7 @@ object AppPrefs {
 
     private val _defaultTab = mutableStateOf("Home")
     private val _tmdbApiKey = mutableStateOf("")
+    private val _onlineImageMode = mutableStateOf(true)
 
     private val _themeVariant =
         mutableStateOf(ThemeVariantType.EXPRESSIVE)
@@ -35,7 +36,10 @@ object AppPrefs {
                 ?: ThemeVariantType.EXPRESSIVE
         _defaultTab.value = PreferencesHelper.getString("default_tab") ?: "Home"
         _tmdbApiKey.value = PreferencesHelper.getString("tmdb_api_key") ?: ""
+        _onlineImageMode.value = PreferencesHelper.getBool("online_image_mode") ?: true
     }
+
+    fun isOnlineImageMode(): Boolean = _onlineImageMode.value
 
     @Composable
     fun state(): AppPrefsState = AppPrefsState(
@@ -72,6 +76,11 @@ object AppPrefs {
 
         defaultTab = _defaultTab.value,
         tmdbApiKey = _tmdbApiKey.value,
+        onlineImageMode = _onlineImageMode.value,
+        setOnlineImageMode = {
+            _onlineImageMode.value = it
+            PreferencesHelper.setBool("online_image_mode", it)
+        },
         setTmdbApiKey = {
             _tmdbApiKey.value = it.trim()
             if (it.trim().isEmpty()) PreferencesHelper.remove("tmdb_api_key")

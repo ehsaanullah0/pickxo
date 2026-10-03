@@ -36,6 +36,7 @@ import com.pranshulgg.watchmaster.R
 import com.pranshulgg.watchmaster.core.ui.components.Symbol
 import com.pranshulgg.watchmaster.core.ui.components.media.MediaDetailsScreenHeader
 import com.pranshulgg.watchmaster.core.ui.components.media.PosterBox
+import com.pranshulgg.watchmaster.core.ui.components.media.pickxoImageRequest
 import com.pranshulgg.watchmaster.core.ui.theme.ShapeRadius
 import com.pranshulgg.watchmaster.data.getTvGenreNames
 import com.pranshulgg.watchmaster.data.local.entity.SeasonEntity
@@ -62,7 +63,7 @@ fun TvHeroHeader(
     Box(modifier = Modifier.fillMaxWidth()) {
 
         AsyncImage(
-            model = "https://image.tmdb.org/t/p/original${tv.backdrop_path}",
+            model = pickxoImageRequest("https://image.tmdb.org/t/p/original${tv.backdrop_path}"),
             contentDescription = tv.name,
             modifier = Modifier
                 .fillMaxWidth()
