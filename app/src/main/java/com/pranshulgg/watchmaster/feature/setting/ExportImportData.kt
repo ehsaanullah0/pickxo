@@ -156,7 +156,7 @@ fun createNewDocumentIntent(): Intent {
     val intent = Intent(Intent.ACTION_CREATE_DOCUMENT).apply {
         addCategory(Intent.CATEGORY_OPENABLE)
         type = "application/json"
-        putExtra(Intent.EXTRA_TITLE, "watchmaster_backup-${randomId}-v4.json")
+        putExtra(Intent.EXTRA_TITLE, "pickxo_backup-${randomId}-v4.json")
     }
 
     intent.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION or

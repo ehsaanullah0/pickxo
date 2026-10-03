@@ -1,5 +1,7 @@
 package com.pranshulgg.watchmaster.core.ui.navigation
 
+import android.net.Uri
+
 import com.pranshulgg.watchmaster.feature.search.SearchType
 
 object NavRoutes {
@@ -30,8 +32,9 @@ object NavRoutes {
         return "$TV_DETAIL_SCREEN/$id/$seasonNumber/$seasonId"
     }
 
-    fun search(type: SearchType = SearchType.MULTI): String {
-        return "$SEARCH?searchType=${type.name}"
+    fun search(type: SearchType = SearchType.MULTI, query: String? = null): String {
+        val base = "$SEARCH?searchType=${type.name}"
+        return if (query.isNullOrBlank()) base else "$base&query=${Uri.encode(query)}"
     }
 
     fun listEntryScreen(id: Long): String {

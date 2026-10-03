@@ -8,6 +8,7 @@ import androidx.compose.material3.FloatingToolbarExitDirection.Companion.Bottom
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.pranshulgg.watchmaster.core.network.TvSeasonDto
@@ -28,7 +29,8 @@ data class SearchUiState(
 @Composable
 fun SearchScreen(
     navController: NavController,
-    searchType: SearchType
+    searchType: SearchType,
+    initialQuery: String? = null
 ) {
 
     val viewModel: SearchViewModel = hiltViewModel()
@@ -39,6 +41,11 @@ fun SearchScreen(
         FloatingToolbarDefaults.exitAlwaysScrollBehavior(exitDirection = Bottom)
     val sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)
 
+    LaunchedEffect(initialQuery) {
+        if (!initialQuery.isNullOrBlank()) {
+            viewModel.searchFor(initialQuery, searchType)
+        }
+    }
 
     SearchScreenScaffold(
         viewModel,

@@ -64,7 +64,8 @@ data class SimpleMovie(
     val overview: String?,
     val poster_path: String?,
     val release_date: String?,
-    val genre_ids: List<Int>?
+    val genre_ids: List<Int>?,
+    val vote_average: Double = 0.0
 )
 
 data class ReviewsDto(

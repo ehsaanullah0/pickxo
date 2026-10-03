@@ -115,6 +115,15 @@ fun SettingsScreen(navController: NavController) {
             SettingSection(
                 title = "General",
                 tiles = listOf(
+                    SettingTile.DialogTextFieldTile(
+                        leading = { SettingsTileIcon(R.drawable.key_24px) },
+                        title = "TMDB API Key",
+                        description = if (prefs.tmdbApiKey.isBlank()) null else "Custom API key saved on this device",
+                        placeholder = "Enter your TMDB API key",
+                        placeholderTextField = "TMDB API key",
+                        initialText = prefs.tmdbApiKey,
+                        onTextSubmitted = { prefs.setTmdbApiKey(it) }
+                    ),
                     SettingTile.DialogOptionTile(
                         leading = { SettingsTileIcon(R.drawable.home_filled_24px) },
                         title = "Starting default screen",

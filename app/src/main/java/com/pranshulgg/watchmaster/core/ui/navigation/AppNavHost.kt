@@ -85,11 +85,16 @@ fun AppNavHost(
                 MovieDetailPage(id = id, navController)
             }
             composable(
-                route = "${NavRoutes.SEARCH}?searchType={searchType}",
+                route = "${NavRoutes.SEARCH}?searchType={searchType}&query={query}",
                 arguments = listOf(
                     navArgument("searchType") {
                         type = NavType.StringType
                         defaultValue = SearchType.MOVIE.name
+                    },
+                    navArgument("query") {
+                        type = NavType.StringType
+                        nullable = true
+                        defaultValue = null
                     }
                 )
             ) { backStackEntry ->
@@ -98,10 +103,12 @@ fun AppNavHost(
                     ?.getString("searchType")
                     ?.let { SearchType.valueOf(it) }
                     ?: SearchType.MULTI
+                val initialQuery = backStackEntry.arguments?.getString("query")
 
                 SearchScreen(
                     navController = navController,
-                    searchType = searchType
+                    searchType = searchType,
+                    initialQuery = initialQuery
                 )
             }
             composable(

@@ -19,5 +19,8 @@ data class AppPrefsState(
     val setThemeVariant: (ThemeVariantType) -> Unit,
 
     val defaultTab: String,
-    val setDefaultTab: (String) -> Unit
+    val setDefaultTab: (String) -> Unit,
+
+    val tmdbApiKey: String,
+    val setTmdbApiKey: (String) -> Unit
 )

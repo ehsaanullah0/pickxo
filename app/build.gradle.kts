@@ -12,10 +12,7 @@ val localProps = Properties().apply {
     if (f.exists()) f.inputStream().use { load(it) }
 }
 
-val tmdbApiKey: String = localProps.getProperty("TMDB_API_KEY")
-    ?: throw GradleException(
-        "TMDB_API_KEY not found! Add it to local.properties in the project root."
-    )
+val tmdbApiKey: String = localProps.getProperty("TMDB_API_KEY") ?: ""
 
 
 android {
@@ -23,7 +20,7 @@ android {
     compileSdk = 36
     android.buildFeatures.buildConfig = true
     defaultConfig {
-        applicationId = "com.pranshulgg.watchmaster"
+        applicationId = "com.pickxo.app"
         minSdk = 24
         targetSdk = 36
         versionCode = 15

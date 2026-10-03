@@ -47,6 +47,11 @@ class SearchViewModel @Inject constructor(
         query = q
     }
 
+    fun searchFor(q: String, type: SearchType = SearchType.MULTI) {
+        query = q
+        search(type)
+    }
+
     private val mockResults = listOf(
         SearchItem(
             id = 243875,

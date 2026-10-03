@@ -10,6 +10,7 @@ import okhttp3.OkHttpClient
 import okhttp3.Interceptor
 import okhttp3.logging.HttpLoggingInterceptor
 import com.pranshulgg.watchmaster.BuildConfig
+import com.pranshulgg.watchmaster.core.utils.PreferencesHelper
 import com.pranshulgg.watchmaster.data.CreditsDto
 import com.pranshulgg.watchmaster.data.ImagesDto
 import com.pranshulgg.watchmaster.data.MovieGenre
@@ -130,6 +131,23 @@ data class TvSeasonEpisodesResponse(
     val episodes: List<TvSeasonEpisodeDto>,
 )
 
+data class TvBrowseListDto(
+    val page: Int,
+    val results: List<TvSimpleHome>,
+    val total_pages: Int,
+    val total_results: Int
+)
+
+data class TvSimpleHome(
+    val id: Long,
+    val name: String,
+    val poster_path: String?,
+    val first_air_date: String?,
+    val vote_average: Double = 0.0,
+    val genre_ids: List<Int>? = null,
+)
+
+
 
 data class TvSeasonEpisodeDto(
     val air_date: String,
@@ -144,6 +162,43 @@ data class TvSeasonEpisodeDto(
 
 
 interface TmdbApi {
+    @GET("trending/all/week")
+    suspend fun getTrending(
+        @Query("language") language: String = "en-US"
+    ): Response<MultiSearchResponse>
+
+    @GET("movie/popular")
+    suspend fun getPopularMovies(
+        @Query("language") language: String = "en-US",
+        @Query("page") page: Int = 1
+    ): Response<MovieListDto>
+
+    @GET("movie/now_playing")
+    suspend fun getNowPlayingMovies(
+        @Query("language") language: String = "en-US",
+        @Query("page") page: Int = 1
+    ): Response<MovieListDto>
+
+    @GET("movie/upcoming")
+    suspend fun getUpcomingMovies(
+        @Query("language") language: String = "en-US",
+        @Query("page") page: Int = 1
+    ): Response<MovieListDto>
+
+    @GET("tv/popular")
+    suspend fun getPopularTv(
+        @Query("language") language: String = "en-US",
+        @Query("page") page: Int = 1
+    ): Response<TvBrowseListDto>
+
+    @GET("discover/movie")
+    suspend fun discoverMovies(
+        @Query("with_genres") withGenres: String,
+        @Query("sort_by") sortBy: String = "popularity.desc",
+        @Query("language") language: String = "en-US",
+        @Query("page") page: Int = 1
+    ): Response<MovieListDto>
+
     @GET
     suspend fun search(
         @Url url: String,
@@ -198,7 +253,11 @@ interface TmdbApi {
             val auth = Interceptor { chain ->
                 val original = chain.request()
                 val newUrl = original.url.newBuilder()
-                    .addQueryParameter("api_key", BuildConfig.TMDB_API_KEY)
+                    .addQueryParameter(
+                        "api_key",
+                        PreferencesHelper.getString("tmdb_api_key")?.takeIf { it.isNotBlank() }
+                            ?: BuildConfig.TMDB_API_KEY
+                    )
                     .build()
                 val request = original.newBuilder().url(newUrl).build()
                 chain.proceed(request)

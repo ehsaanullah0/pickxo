@@ -13,6 +13,7 @@ object AppPrefs {
     private val _useDynamicColor = mutableStateOf(false)
 
     private val _defaultTab = mutableStateOf("Home")
+    private val _tmdbApiKey = mutableStateOf("")
 
     private val _themeVariant =
         mutableStateOf(ThemeVariantType.EXPRESSIVE)
@@ -33,6 +34,7 @@ object AppPrefs {
                 }
                 ?: ThemeVariantType.EXPRESSIVE
         _defaultTab.value = PreferencesHelper.getString("default_tab") ?: "Home"
+        _tmdbApiKey.value = PreferencesHelper.getString("tmdb_api_key") ?: ""
     }
 
     @Composable
@@ -69,6 +71,12 @@ object AppPrefs {
         },
 
         defaultTab = _defaultTab.value,
+        tmdbApiKey = _tmdbApiKey.value,
+        setTmdbApiKey = {
+            _tmdbApiKey.value = it.trim()
+            if (it.trim().isEmpty()) PreferencesHelper.remove("tmdb_api_key")
+            else PreferencesHelper.setString("tmdb_api_key", it.trim())
+        },
         setDefaultTab = {
             _defaultTab.value = it
             PreferencesHelper.setString("default_tab", it)
