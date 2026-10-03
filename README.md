@@ -3,7 +3,7 @@
 
 # **PICKXO** - THE WATCHLIST APP
 **this app is initially developed by [PranshulGG/WatchMaster](https://github.com/PranshulGG/WatchMaster) and modified by EHSAAN ULLAH**
-### WatchMaster is an Android watchlist app for tracking TV shows and movies.  
+### Pickxo is an Android watchlist app for tracking TV shows and movies.  
 Built with **Kotlin**, **Jetpack Compose**, and **Material 3 Expressive**, powered by **TMDB**.
 
 Organize what you watch. That’s it. That’s the app.
