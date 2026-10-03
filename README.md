@@ -115,10 +115,16 @@ After the build finishes, Android Studio will show:
 
 Click **locate** to find the APK.
 
-
 ## The debug APK is normally located at:
 
 ~ app/build/outputs/apk/debug/app-debug.apk
+
+---
+
+## IF YOU WANT ALTERNATE WEB APP: VISIT ~  
+<a href="https://ehsaanmovie.ai.studio/" target="_blank">
+ <img height="80" src="https://github.com/user-attachments/assets/7e3c4963-7c62-4175-9a77-b389a78a42e6" />
+  </a>
 
 ## NOTE: ❗I AM NOT A DEVELOPER SO ANYONE CAN GIVE ME THE APK BUILD FOR THIS PROJECT...
 ## CONTACT ME : worsmon@proton.me
