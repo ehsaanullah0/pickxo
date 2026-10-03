@@ -52,3 +52,5 @@ Organize what you watch. That’s it. That’s the app.
 - **API:** [TMDB](https://www.themoviedb.org/)
 
 
+# NOTE: ❗I AM NOT A DEVELOPER SO ANYONE CAN GIVE ME THE APK BUILD WITH THE HOMESCREEN FIXES.
+## CONTACT ME : mailto:worsmon@proton.me
