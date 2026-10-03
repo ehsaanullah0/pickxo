@@ -1,0 +1,115 @@
+package com.pranshulgg.watchmaster.feature.shared.media.components
+
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
+import com.pranshulgg.watchmaster.core.model.WatchStatus
+import com.pranshulgg.watchmaster.core.ui.components.DialogBasic
+import com.pranshulgg.watchmaster.core.ui.components.TextAlertDialog
+import com.pranshulgg.watchmaster.core.ui.components.media.RateMediaDialogContent
+import com.pranshulgg.watchmaster.core.ui.theme.ShapeRadius
+import com.pranshulgg.watchmaster.feature.shared.media.ui.watchstatus.dialogMessage
+
+@Composable
+fun MediaNoteDialogContent(
+    show: Boolean,
+    note: String,
+    initialNote: String,
+    onNoteChange: (String) -> Unit,
+    onDismiss: () -> Unit,
+    onConfirm: (String) -> Unit
+) {
+    DialogBasic(
+        show = show,
+        title = "Add a note",
+        showDefaultActions = true,
+        onDismiss = {
+            onDismiss()
+            onNoteChange(initialNote)
+        },
+        onConfirm = {
+            onConfirm(note)
+        },
+        confirmText = "Save",
+        content = {
+            OutlinedTextField(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 24.dp),
+                shape = RoundedCornerShape(ShapeRadius.Large),
+                value = note,
+                onValueChange = onNoteChange,
+                placeholder = { Text("Note...") }
+            )
+        }
+    )
+}
+
+@Composable
+fun MediaRatingDialogContent(
+    show: Boolean,
+    onDismiss: () -> Unit,
+    onConfirm: (Double) -> Unit,
+    isUpdateRating: Boolean = false,
+    originalRating: Float = 0f,
+    isTv: Boolean = false,
+) {
+    DialogBasic(
+        show = show,
+        title = if (isUpdateRating) "Update rating" else if (isTv) "Rate this season" else "Rate this movie",
+        showDefaultActions = false,
+        onDismiss = {
+            onDismiss()
+        },
+        content = {
+            RateMediaDialogContent(
+                updateRating = isUpdateRating,
+                originalRating = originalRating,
+                onCancel = {
+                    onDismiss()
+                },
+                onConfirm = { rating ->
+                    onConfirm(rating)
+                }
+            )
+        }
+    )
+}
+
+
+@Composable
+fun MediaConfirmationDialogContent(
+    show: Boolean,
+    onDismiss: () -> Unit,
+    onConfirm: () -> Unit,
+    isTv: Boolean = false,
+    status: WatchStatus? = null,
+    customHeadline: String? = null,
+    customMessage: String? = null
+) {
+
+    val text = if (isTv) "season" else "movie"
+
+    val headline = if (status != null) "Watch status" else "Delete $text"
+    val message = status?.dialogMessage(isTv)
+        ?: "Are you sure you want to delete this $text? this action cannot be undone"
+
+    TextAlertDialog(
+        show = show,
+        title = customHeadline ?: headline,
+        message = customMessage ?: message,
+        confirmText = "Confirm",
+        onConfirm = {
+            onConfirm()
+        },
+        onDismiss = {
+            onDismiss()
+        }
+    )
+}
