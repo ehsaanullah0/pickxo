@@ -120,5 +120,5 @@ Click **locate** to find the APK.
 
 ~ app/build/outputs/apk/debug/app-debug.apk
 
-# NOTE: ❗I AM NOT A DEVELOPER SO ANYONE CAN GIVE ME THE APK BUILD FOR THIS PROJECT...
+## NOTE: ❗I AM NOT A DEVELOPER SO ANYONE CAN GIVE ME THE APK BUILD FOR THIS PROJECT...
 ## CONTACT ME : worsmon@proton.me
