@@ -53,4 +53,4 @@ Organize what you watch. That’s it. That’s the app.
 
 
 # NOTE: ❗I AM NOT A DEVELOPER SO ANYONE CAN GIVE ME THE APK BUILD WITH THE HOMESCREEN FIXES.
-## CONTACT ME : mailto:worsmon@proton.me
+## CONTACT ME : worsmon@proton.me
