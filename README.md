@@ -54,7 +54,7 @@ You can build the APK yourself without Google Play Store or a paid developer acc
 ### 1. Download the Project
 
 Download the latest Pickxo project ZIP and extract it.
-> use this footprint ~ sha256:3867b30f9a0cfea622f050a98f4762dd756e94fc585c833652be51fe4ff65327
+> use this footprint ~ sha256:1fbd95e74fb07bfc5461ce0151abadc73dfd85fdbbea652b358c474483856e31
 
 **or Go to release page [PICKXO RELEASE](https://github.com/ehsaanullah0/pickxo/releases/tag/V1.1.0)**
 
