@@ -3,10 +3,19 @@
 
 # **PICKXO** - THE WATCHLIST APP
 **this app is initially developed by [PranshulGG/WatchMaster](https://github.com/PranshulGG/WatchMaster) and modified by EHSAAN ULLAH**
-### Pickxo is an Android watchlist app for tracking TV shows and movies.  
-Built with **Kotlin**, **Jetpack Compose**, and **Material 3 Expressive**, powered by **TMDB**.
 
-Organize what you watch. That’s it. That’s the app.
+# TRY MY BRAND NEW EHSAAN PLAY - WATCHLIST WEBAPP
+## **Your watchlist. Your taste. Your space.**
+# [ehsaanplay.ai.studio](https://ehsaanplay.ai.studio/)
+## **STILL TAKING SCREENSHOTS OF MOVIES , TRY EHSAAN PLAY AND TRACK - what you watch feel in simple, calm, and enjoyable way.**
+
+<a href="https://youtu.be/MXh9GdDQqJ4" target="_blank">
+  <img
+    width="200"
+    src="https://github.com/user-attachments/assets/bf633cc6-a8ed-4fca-b7b1-1aef2df991d3"
+    alt="Watch EHSAAN MOVIE Demo Video"
+  />
+</a>
 
 <p>
   <a href="https://ehsaancolour.ai.studio/" target="_blank">
@@ -25,8 +34,39 @@ Organize what you watch. That’s it. That’s the app.
    <img height="70" src="https://github.com/user-attachments/assets/de9dd1ed-3480-442f-af74-62c3924dd747" />
 </p>
 <br>
-    </div>
+</div>
 
+# PREVIEW OF APP
+
+<!-- Desktop Screenshots -->
+
+<p align="center">
+  <img width="100%" src="https://github.com/user-attachments/assets/703cfbec-5781-4205-b1ba-00f725236443" alt="Desktop Screenshot 1">
+</p>
+
+<p align="center">
+  <img width="100%" src="https://github.com/user-attachments/assets/367acd6c-a606-44ec-897e-12776918d48a" alt="Desktop Screenshot 2">
+</p>
+
+<p align="center">
+<img width="1366" height="760" alt="image" src="https://github.com/user-attachments/assets/d5ce31a0-f00c-41c8-a0de-255bf4cbfea0" />
+</p>
+
+<!-- Mobile Screenshots -->
+
+<table>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/72d3bb7f-e49e-4b93-be42-f7218c715bc4" width="100%">
+    </td>
+    <td align="center">
+   <img width="720" src="https://github.com/user-attachments/assets/248524bf-5305-4274-9fa9-ef5897bf1089" />
+  </td>
+    <td align="center">
+   <img width="720" src="https://github.com/user-attachments/assets/c466c0a7-8f41-4bfe-b863-d2635f31c210" />
+    </td>
+  </tr>
+<table>
 
 ## 🚀 Features
 
