@@ -48,10 +48,6 @@
   <img width="100%" src="https://github.com/user-attachments/assets/367acd6c-a606-44ec-897e-12776918d48a" alt="Desktop Screenshot 2">
 </p>
 
-<p align="center">
-<img width="1366" height="760" alt="image" src="https://github.com/user-attachments/assets/d5ce31a0-f00c-41c8-a0de-255bf4cbfea0" />
-</p>
-
 <!-- Mobile Screenshots -->
 
 <table>
